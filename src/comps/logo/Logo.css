@@ -1,0 +1,16 @@
+.logo{
+    display: flex;
+}
+.logo h1{
+    font-size: 8rem;
+    border-right: 5px solid;
+    padding: 0 10px;
+    height: 50%;
+    text-shadow: 3px 3px 5px #000;
+}
+.logo p{
+    font-size: 2rem;
+    padding: 0 0 0 12px;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 5px #000;
+}

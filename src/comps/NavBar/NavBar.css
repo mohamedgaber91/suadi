@@ -1,0 +1,44 @@
+.followNav {
+    position: sticky;
+    top: 0;
+    max-height: 65px;
+    z-index: 999;
+}
+
+.userIcon {
+    color: #fff;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    padding: 5px;
+}
+
+.loginCont {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.fa-sun {
+    cursor: pointer;
+}
+
+@media (max-width :990px) {
+    .followNav {
+        max-height: 93px;
+
+    }
+    .show{
+        background-color: #198754;
+    }
+    .logMode{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .contNav{
+        margin: 0 !important;
+        padding: 0;
+    }
+    .listToggle{
+        margin: 0 50px;
+    }
+}

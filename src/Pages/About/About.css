@@ -1,0 +1,93 @@
+.aboutHeader{
+    background: url('../../imgs/about-1.jpg') no-repeat center;
+    background-size: cover;
+    background-position: 0px 30%;
+    color: #198754;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: 1px 1px 10px #198754;
+}
+.aboutHeader .row{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    background: linear-gradient(45deg,#198754b9,#0a60af77);
+    width: 100%;
+    height: 45vh;
+    margin: 0;
+    padding: 100px;
+
+}
+
+.aboutHeader .aboutHeaderImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aboutHeader h1{
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 5px 5px 10px #000;
+}
+.aboutHeader p{
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #3b4640;
+}
+.aboutRight .aboutRightText{
+    display: inline;
+}
+.aboutRight .aboutRightText p ,.cyper .cyperText p{
+    font-size: 1.15rem;
+}
+.aboutRight .aboutRightImg{
+    width: 100%;
+    height: 100%;
+}
+.aboutLeft .aboutLeftText{
+    display: inline;
+}
+.aboutLeft .aboutLeftText p{
+    font-size: 1.15rem;
+}
+.aboutLeft .aboutLeftImg , .cyper .cyperImg{
+    width: 65%;
+    height: 100%;
+}
+.cyper  {
+    padding: 4%;
+    background: linear-gradient(358deg,#00023f,#00094c,#00023f,#00094c);
+    margin: 10px 0;
+}
+ h1{
+    color: #198754;
+    font-size: 2rem;
+}
+.market {
+    padding: 4%;
+}
+.market .marketImg{
+    width: 65%;
+    height: 100%;
+}
+.human {
+    background:url('../../imgs/about-1.jpeg') no-repeat center;
+    background-size: cover;
+    padding: 0;
+    min-height: 45vh;
+}
+/* .human .humanText h1{
+    color: #ffff;
+} */
+.human .row {
+    padding: 5%;
+    background: linear-gradient(45deg,#1987549c,#1987542a);
+    flex-direction: row-reverse;
+    margin: 0;
+    height: 45vh;
+}
+

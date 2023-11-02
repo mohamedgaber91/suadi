@@ -1,0 +1,19 @@
+
+.fa-star{   
+    width: 20%;
+    height: 25%;
+    cursor: pointer;
+}
+.holder{
+    text-align: start;
+}
+.signBtns{
+    text-align: end;
+    margin-top: 20px;
+}
+.signBtns button{
+    font-size: 1.3rem;
+}
+.button-green{
+    color: #000 !important;
+}

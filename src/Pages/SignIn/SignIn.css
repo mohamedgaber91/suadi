@@ -1,0 +1,11 @@
+.signIn{
+    width: 45%;
+    margin: 10% auto;
+}
+
+@media (max-width:900px){
+   .signIn{
+    width: 90%;
+    margin: 10% auto;
+} 
+}
