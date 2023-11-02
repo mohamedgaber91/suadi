@@ -102,9 +102,8 @@ function SignIn() {
                     <span className='fs-6 fw-lighter text-danger visually-hidden' id='passwordNote'> enter Email</span>
                 </div>
             </div>
-            <Link to={'/'} className="btn btn-success p-0 "> <button type="button" className="btn btn-success " onClick={sendData}>Sign Up</button></Link>
-            {/* <Link to={'/'} className="btn btn-success p-0 ms-5"> <button type="button" className="btn btn-success">Sign In</button></Link> */}
-
+            <button type="button" className="btn btn-success " onClick={sendData}>Sign Up</button>
+            <Link to={'/signIn'} className="btn btn-success p-0 ms-5"> <button type="button" className="btn btn-success">Sign In</button></Link>
         </div>
     );
 }

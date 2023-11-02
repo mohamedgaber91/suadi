@@ -38,6 +38,9 @@ function SignIn() {
         }
 
     }
+    const sendData=()=>{
+        console.log("userData",userData)
+    }
     return (
         <div className='signIn'>
             <div className="mb-3 row">
@@ -59,8 +62,8 @@ function SignIn() {
 
                 </div>
             </div>
-            <Link to={'/'} className="btn btn-success p-0 "> <button type="button" className="btn btn-success ">Sign In</button></Link>
-            <Link to={'/'} className="btn btn-warning p-0 ms-5"> <button type="button" className="btn btn-warning text-white     ">Sign up</button></Link>
+            <button type="button" className="btn btn-success " onClick={sendData}>Sign In</button>
+            <Link to={'/signUp'} className="btn btn-warning p-0 ms-5"> <button type="button" className="btn btn-warning text-white     ">Sign up</button></Link>
 
         </div>
     );
