@@ -1,5 +1,5 @@
 {
-  "name": "my-empty-project",
+  "name": "backend",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -9,22 +9,21 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
+  "devDependencies": {},
   "dependencies": {
-    "@strapi/plugin-i18n": "4.13.1",
-    "@strapi/plugin-users-permissions": "4.13.1",
-    "@strapi/strapi": "4.13.1",
-    "better-sqlite3": "8.5.0",
-    "strapi-google-auth": "^0.2.1",
-    "strapi-plugin-fcm": "^1.0.8"
+    "@strapi/strapi": "4.15.0",
+    "@strapi/plugin-users-permissions": "4.15.0",
+    "@strapi/plugin-i18n": "4.15.0",
+    "better-sqlite3": "8.6.0"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "fad3e157-ff36-4228-9994-aeafd6652c85"
+    "uuid": "60ac1b76-bde6-49e5-8072-345d6b8161df"
   },
   "engines": {
-    "node": ">=16.0.0 <=20.x.x",
+    "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
