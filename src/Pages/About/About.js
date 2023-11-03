@@ -6,6 +6,7 @@ import img2 from '../../imgs/about-2.jpg';
 import img3 from '../../imgs/about-3.png';
 import img4 from '../../imgs/about-4.jpg';
 import img5 from '../../imgs/cyper-1.jpg';
+import NavBar from '../../comps/NavBar/NavBar';
 
 function Movies(props) {
     const {darkMode =true} = props;
@@ -16,6 +17,7 @@ function Movies(props) {
       }
     return (
         <>
+        <NavBar />
             <LeftImg
                 leftSrc={<h1>about fcg</h1>} alt='logo' title=''
                 text=''

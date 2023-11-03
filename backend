@@ -12,9 +12,14 @@ import axios from 'axios';
 // Add your own code here to customize or restrict how the public can register new users.
 axios
   .post('http://localhost:1337/api/auth/local/register', {
-    username: 'Strapi user',
-    email: 'user@strapi.io',
-    password: 'strapiPassword',
+    // username: 'Strapi user',
+    // email: 'user@strapi.io',
+    // password: 'strapiPassword',
+     username: userData.name,
+        email: userData.email,
+        password: userData.password,
+        phone: userData.phone,
+   
   })
   .then(response => {
     // Handle success.

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './NavBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
@@ -30,16 +30,18 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav ms-auto ">
-                        <Link className="nav-link active" aria-current="page" to="/" onClick={() => backToTop()}>Home</Link>
-                        <Link className="nav-link" to="/services" onClick={() => backToTop()}>services</Link>
-                        <Link className="nav-link" to="/about" onClick={() => backToTop()}>About Us</Link>
+                        <NavLink className="nav-link " aria-current="page" to="/home" onClick={() => backToTop()}>Home</NavLink>
+                        <NavLink className="nav-link" to="/services" >services</NavLink>
+                        <NavLink className="nav-link" to="/about" onClick={() => backToTop()}>About Us</NavLink>
                     </div>
+                    
+                    
                     <div className="navbar-nav me-5 align-items-center ms-5 logMode">
                         {activeMode}
-                        <Link className="nav-link ps-1 loginCont" to="/signIn">
+                        <NavLink className="nav-link ps-1 loginCont" to="/edituserinfo">
                             <FontAwesomeIcon icon="fa-regular fa-user" className='userIcon' />
-                            <button className='btn text-white ps-3'> Log In</button>
-                        </Link>
+                            
+                        </NavLink>
                     </div>
                 </div>
             </div>

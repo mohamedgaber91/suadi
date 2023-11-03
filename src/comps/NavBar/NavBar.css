@@ -20,6 +20,12 @@
 .fa-sun {
     cursor: pointer;
 }
+.header-page{
+    background-color: rgb(221, 221, 221);
+    width: 100%;
+    height: 50px;
+    color: #198754;
+}
 
 @media (max-width :990px) {
     .followNav {

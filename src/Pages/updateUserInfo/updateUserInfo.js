@@ -1,20 +1,21 @@
 import { useState } from "react";
-import "./SignIn.css";
+
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { openNotificationWithIcon } from "../../services/helper/ui";
-import HeaderPage from "../../comps/header";
+import { Header } from "antd/es/layout/layout";
+import NavBar from "../../comps/NavBar/NavBar";
 
-function SignIn() {
+function UpdateUserInfo() {
   let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   let regName = /^[A-Za-z]{2,}$/;
   let regPass = /[!#%&$^&*()_+{[}]|]|[0-9]|[A-Z]/;
   let regPassNo = /[0-9]/;
   let regPassWord = /[A-Z]/;
-const navigate=useNavigate()
-// jwt of users
+  const navigate = useNavigate();
+  // jwt of users
 
   const [userData, setUserData] = useState({
     name: "",
@@ -27,14 +28,11 @@ const navigate=useNavigate()
       setUserData({ ...userData, name: e.target.value });
       if (e.target.value.length < 2) {
         document.getElementById("nameNote").innerHTML = "Invalid name";
-        document
-          .getElementById("nameNote")
-          .classList.remove("visually-hidden");
+        document.getElementById("nameNote").classList.remove("visually-hidden");
       } else if (/\d/.test(e.target.value)) {
-        document.getElementById("nameNote").innerHTML = "Name cannot contain numbers";
-        document
-          .getElementById("nameNote")
-          .classList.remove("visually-hidden");
+        document.getElementById("nameNote").innerHTML =
+          "Name cannot contain numbers";
+        document.getElementById("nameNote").classList.remove("visually-hidden");
       } else {
         document.getElementById("nameNote").classList.add("visually-hidden");
       }
@@ -69,33 +67,35 @@ const navigate=useNavigate()
   const sendData = () => {
     console.log("userData", userData);
     axios
-      .post("http://192.168.43.123:1337/api/auth/local/register",{
+      .post("http://192.168.43.123:1337/api/auth/local/register", {
         username: userData.name,
         email: userData.email,
         password: userData.password,
         phone: userData.phone,
-   
       })
       .then((response) => {
         // Handle success.
         console.log("Well done!");
-        console.log('User profile', response.data.user);
-        console.log('User token', response.data.jwt);
-        openNotificationWithIcon("success",`welcome ${userData.name}`)
-        navigate("/home")
+        console.log("User profile", response.data.user);
+        console.log("User token", response.data.jwt);
+        openNotificationWithIcon("success", `welcome ${userData.name}`);
+        navigate("/home");
         // Save the user data to Local Storage
-        localStorage.setItem("jwt",response.data.jwt);
-
+        localStorage.setItem("jwt", response.data.jwt);
       })
       .catch((error) => {
         // Handle error.
         console.log("An error occurred:", error.response);
       });
   };
+  const valueKey = process.env.NEXT_PUPLIC_VALUE_KEY;
+  console.log(valueKey);
+
   return (
     <>
-    <HeaderPage/>
+    <NavBar/>
     <div className="signIn">
+
       <div className="mb-3 row">
         <label htmlFor="nameInput" className="col-sm-2 col-form-label">
           Name{" "}
@@ -183,18 +183,17 @@ const navigate=useNavigate()
           </span>
         </div>
       </div>
-      <button type="button" className="btn btn-success " onClick={sendData}>
-        Sign Up
-      </button>
-      <Link to={"/signIn"} className="btn btn-success p-0 ms-5">
-        {" "}
-        <button type="button" className="btn btn-success">
-          Sign In
+      <div className="d-flex justify-content-center  mt-5">
+        <button type="button" className="btn btn-success me-3 " onClick={sendData}>
+          Edit Your Information
         </button>
-      </Link>
+        <button type="button" className="btn btn-danger  ms-3" onClick={sendData}>
+          logout
+        </button>
+      </div>
     </div>
     </>
   );
 }
 
-export default SignIn;
+export default UpdateUserInfo;
