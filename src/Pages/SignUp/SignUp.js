@@ -101,7 +101,8 @@ const navigate=useNavigate()
           Name{" "}
         </label>
         <div className="col-sm-10 text-start">
-          <input
+          <input 
+            required
             type="text"
             name="nameInput"
             className="form-control"
@@ -124,6 +125,7 @@ const navigate=useNavigate()
         </label>
         <div className="col-sm-10 text-start">
           <input
+            required
             type="email"
             name="emailInput"
             className="form-control"
@@ -146,6 +148,7 @@ const navigate=useNavigate()
         </label>
         <div className="col-sm-10 text-start">
           <PhoneInput
+          
             country={"sa"}
             value={""}
             preferredCountries={["eg", "qa", "ku", "ae", "sa"]}
@@ -153,6 +156,7 @@ const navigate=useNavigate()
             inputStyle={{ width: "100%" }}
           />
           <span
+          
             className="fs-6 fw-lighter text-danger visually-hidden"
             id="emailNote"
           >
@@ -167,6 +171,7 @@ const navigate=useNavigate()
         </label>
         <div className="col-sm-10 text-start">
           <input
+          required
             type="password"
             maxLength={15}
             name="passwordInput"
