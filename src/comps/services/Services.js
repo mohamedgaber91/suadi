@@ -9,11 +9,15 @@ import c from "../../imgs/C.svg";
 import Button from "../botton/Button";
 import { backToTop } from "../../App";
 import NavBar from "../NavBar/NavBar";
+
+
+
 const Services = (props) => {
-  const { darkMode = false } = props;
+  const { darkMode = false ,showNavbar} = props;
   return (
     <>
-      <NavBar />
+     {showNavbar==="true"?<NavBar/>:<></>}
+
       <div
         className={`container ${
           darkMode ? "text-black" : "text-white"

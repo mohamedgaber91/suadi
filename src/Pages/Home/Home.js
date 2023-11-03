@@ -51,7 +51,10 @@ function Home(props) {
         haveLogo={true}
         divTextClassName={`${darkMode ? "darkLogoBorder" : "logoBorder"} `}
       />
-      <Services darkMode={darkMode} />
+     
+        <Services darkMode={darkMode} showNavbar="false" />
+ 
+      
       <LeftImg
         leftSrc={
           <>

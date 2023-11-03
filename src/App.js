@@ -35,8 +35,10 @@ function App() {
         <Route path="/" element={<SignIn darkMode={modeIs} />}>
           {" "}
         </Route>
-        <Route path="/home" element={<Home darkMode={modeIs} />}></Route>
-        <Route path="/services" element={<Services />}></Route>
+        <Route path="/home" element={<Home darkMode={modeIs} />}>
+         
+        </Route>
+        <Route path="/home/services" element={<Services showNavbar="true" />}></Route>
 
         <Route path="/about" element={<About darkMode={!modeIs} />}></Route>
         <Route path="/edituserinfo" element={<UpdateUserInfo darkMode={!modeIs} />}></Route>

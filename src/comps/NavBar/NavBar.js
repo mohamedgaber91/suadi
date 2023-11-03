@@ -3,7 +3,6 @@ import './NavBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import logo from '../../imgs/Logo.svg';
-import { backToTop } from '../../App';
 import { useDispatch } from 'react-redux';
 import { setDark } from '../../rtk/slices/darkMode';
 
@@ -30,9 +29,9 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav ms-auto ">
-                        <NavLink className="nav-link " aria-current="page" to="/home" onClick={() => backToTop()}>Home</NavLink>
-                        <NavLink className="nav-link" to="/services" >services</NavLink>
-                        <NavLink className="nav-link" to="/about" onClick={() => backToTop()}>About Us</NavLink>
+                        <NavLink className="nav-link " aria-current="page" to="/home" >Home</NavLink>
+                        <NavLink className="nav-link" to="/home/services">services</NavLink>
+                        <NavLink className="nav-link" to="/about" >About Us</NavLink>
                     </div>
                     
                     
