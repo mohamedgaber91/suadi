@@ -1,0 +1,129 @@
+//////////////////////////////////////////////////////////////////////////////التثبيت////////////////////////////////////////
+جوا ملف الرياكت نكتب          npm install pocketbase --save
+
+
+وبعد كدا
+
+
+ cd server
+
+
+وبعد كدا
+
+
+./pocketbase serve --http="0.0.0.0:8090"
+
+
+
+
+
+
+
+
+////////////////////////////Register New user///////////////////////////////////////////////
+
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://0.0.0.0:8090');
+
+...
+
+// example create data
+const data = {
+    "username": "test_username",
+    "email": "test@example.com",
+    "emailVisibility": true,
+    "password": "12345678",
+    "passwordConfirm": "12345678",
+    "name": "test",
+    "role": "RELATION_RECORD_ID",
+    "phone": "test"
+};
+
+const record = await pb.collection('users').create(data);
+
+
+
+//////////////////////////////////سيب دي لحد ما نظبط حوار الايميل///////////////////////////////////////////////
+
+
+
+// (optional) send an email verification request
+await pb.collection('users').requestVerification('test@example.com');
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////Login (return tolen)/////////////////////////////////////////////////////////
+
+
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://0.0.0.0:8090');
+
+...
+
+const authData = await pb.collection('users').authWithPassword(
+    'YOUR_USERNAME_OR_EMAIL',
+    'YOUR_PASSWORD',
+);
+
+// after the above you can also access the auth data from the authStore
+console.log(pb.authStore.isValid);
+console.log(pb.authStore.token);
+console.log(pb.authStore.model.id);
+
+
+////////////////////////////////////////////////////////////logout///////////////////////////////////////////////////////////
+
+
+pb.authStore.clear();
+
+
+
+
+//////////////////////////////////////////////////////////Update User Data///////////////////////////////////////////////////
+
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://0.0.0.0:8090');
+
+...
+
+// example update data
+const data = {
+    "username": "test_username_update",
+    "emailVisibility": false,
+    "password": "87654321",
+    "passwordConfirm": "87654321",
+    "oldPassword": "12345678",
+    "name": "test",
+    "role": "RELATION_RECORD_ID",
+    "phone": "test"
+};
+
+const record = await pb.collection('users').update('RECORD_ID', data);
+
+
+
+//////////////////////////////////////////////Delete user Email////////////////////////////////////////////////////////////////////
+
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://0.0.0.0:8090');
+
+...
+
+await pb.collection('users').delete('RECORD_ID');
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
