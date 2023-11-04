@@ -9,7 +9,6 @@ import HeaderPage from "../../comps/header";
 
 function SignIn() {
   let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  let regName = /^[A-Za-z]{2,}$/;
   let regPass = /[!#%&$^&*()_+{[}]|]|[0-9]|[A-Z]/;
   let regPassNo = /[0-9]/;
   let regPassWord = /[A-Z]/;
