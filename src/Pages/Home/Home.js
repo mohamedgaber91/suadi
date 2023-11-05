@@ -11,6 +11,11 @@ import "./Home.css";
 import Logo from "../../comps/logo/Logo";
 import Services from "../../comps/services/Services";
 import NavBar from "../../comps/NavBar/NavBar";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import SlideNextButton from "./nextSwiper";
+import SlidePrevButton from "./backSwiper";
 function Home(props) {
   var { darkMode = false } = props;
   if (darkMode) {
@@ -20,9 +25,10 @@ function Home(props) {
   }
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <RightImg
         rightSrc={img}
+        divImgClassName="imgG"
         alt="business"
         title="welcome to"
         haveLogo={true}
@@ -51,14 +57,14 @@ function Home(props) {
         haveLogo={true}
         divTextClassName={`${darkMode ? "darkLogoBorder" : "logoBorder"} `}
       />
-     
-        <Services darkMode={darkMode} showNavbar="false" />
- 
-      
+
+      <Services darkMode={darkMode} showNavbar="false" />
+
+
       <LeftImg
         leftSrc={
           <>
-            <img src={comp1} alt="..." />
+            {/* <img src={comp1} alt="..." />
             <img src={comp3} alt="..." />
             <img src={comp1} alt="..." />
             <img src={comp3} alt="..." />
@@ -66,7 +72,28 @@ function Home(props) {
             <img src={comp2} alt="..." />
             <img src={comp4} alt="..." />
             <img src={comp2} alt="..." />
-            <img src={comp4} alt="..." />
+            <img src={comp4} alt="..." /> */}
+
+            <Swiper
+              spaceBetween={window.innerWidth < 900 ? window.innerWidth < 600 ? 0 : 30 : 100}
+              slidesPerView={
+                window.innerWidth < 900 
+                ? window.innerWidth < 600 
+                ? 1 : 3 : 5 }
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              <SlidePrevButton />
+              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp1} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp} className="bigComp" alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
+              <SlideNextButton />
+            </Swiper>
           </>
         }
         className="comp welcome "
@@ -86,7 +113,7 @@ function Home(props) {
       <LeftImg
         leftSrc={
           <>
-            <img src={comp1} alt="..." />
+            {/* <img src={comp1} alt="..." />
             <img src={comp3} alt="..." />
             <img src={comp1} alt="..." />
             <img src={comp3} alt="..." />
@@ -94,9 +121,31 @@ function Home(props) {
             <img src={comp2} alt="..." />
             <img src={comp4} alt="..." />
             <img src={comp2} alt="..." />
-            <img src={comp4} alt="..." />
+            <img src={comp4} alt="..." /> */}
+
+            <Swiper
+              spaceBetween={window.innerWidth < 900 ? window.innerWidth < 600 ? 0 : 30 : 100}
+              slidesPerView={
+                window.innerWidth < 900 
+                ? window.innerWidth < 600 
+                ? 1 : 3 : 5 
+                }
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              <SlidePrevButton />
+              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp1} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp} className="bigComp" alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
+              <SlideNextButton />
+            </Swiper>
           </>
-        }
+          }
         className="comp Indiv "
         alt="logo"
         title="BCG"

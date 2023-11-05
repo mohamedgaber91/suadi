@@ -23,7 +23,6 @@ export const switchMode = (darkMode) => {
 
 function App() {
   const modeIs = useSelector((state) => state.darkMode.mode);
-  console.log(modeIs);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
