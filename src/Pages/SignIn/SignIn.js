@@ -70,7 +70,8 @@ function SignIn() {
       userData.email,
       userData.password,
   ).then(()=>{
-    openNotificationWithIcon("success","welcome")
+    openNotificationWithIcon("success","welcome");
+    navigate('/signIn');
   }).catch((err)=>{
 openNotificationWithIcon("error","faild to login , please enter your correct information")
   })

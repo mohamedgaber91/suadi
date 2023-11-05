@@ -28,7 +28,7 @@ function UpdateUserInfo() {
   const apiUrl = useSelector((state) => state.urlValue.value);
   const pb = new PocketBase(apiUrl);
   const [userInfo, setUserInfo] = useState([pb.authStore.model]);
- 
+
   console.log("user info is ", userInfo);
   const [userData, setUserData] = useState({
     name: "",
