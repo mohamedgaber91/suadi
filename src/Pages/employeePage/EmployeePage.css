@@ -1,15 +1,7 @@
 /* Styling a button with a class selector */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-  }
+
   
-  h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #0077b6;
-  }
+
   .employee-form-container .form{
     width: 40%;
     margin: auto;
@@ -34,12 +26,7 @@ body {
   button:hover {
     background-color: #2674b5;
   }
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-  }
+
   
   .form-group {
     margin-bottom: 20px;
