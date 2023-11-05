@@ -41,7 +41,7 @@ function Home(props) {
         colImg="6"
         colText="6"
         divTextClassName="homeText"
-        darkMode={darkMode}
+        darkMode={false}
       />
       <LeftImg
         leftSrc={<Logo />}
@@ -51,7 +51,7 @@ function Home(props) {
                 solutions for individuals and businesses in the ever-evolving landscape of careers, business strategies,
                 and cybersecurity. Our comprehensive suite of services includes custom career counseling, business audits,
                 cybersecurity solutions, market data opinion polls, and a range of other valuable offerings."
-        darkMode={darkMode}
+        darkMode={false}
         className="welcome"
         imgClassName="welcomeImg"
         colImg="6"
@@ -60,7 +60,7 @@ function Home(props) {
         divTextClassName={`${darkMode ? "darkLogoBorder" : "logoBorder"} `}
       />
 
-      <Services darkMode={darkMode} showNavbar="false" />
+      <Services darkMode={false} showNavbar="false" />
 
 
       <LeftImg
@@ -105,7 +105,7 @@ function Home(props) {
         title="BCG"
         text="BCG is a global consulting firm that partners with leaders in business and society
                  to tackle their most important challenges. Learn more about BCG"
-        darkMode={darkMode}
+        darkMode={false}
         divImgClassName="companiesImg"
         colImg="12"
         colText="12"

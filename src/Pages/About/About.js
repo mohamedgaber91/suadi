@@ -69,7 +69,7 @@ function Movies(props) {
              <LeftImg
                 leftSrc={''} alt='HUMAN' title='Human Resources Departments: '
                 text='HR teams can leverage our career counseling services to provide valuable guidance and support to employees navigating their career paths within the organization, fostering employee satisfaction and retention.'
-                darkMode={!darkMode} className='human' divImgClassName='humanImg'
+                darkMode={false} className='human' divImgClassName='humanImg'
                 colImg='6' colText='6' haveLogo={true}
                 divTextClassName='humanText' />
 
