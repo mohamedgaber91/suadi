@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Services from "./comps/services/Services";
 import UpdateUserInfo from "./Pages/updateUserInfo/updateUserInfo";
+import AdminPage from "./Pages/adminPages/adminPage";
+import EmployeePage from "./Pages/employeePage";
 
 export const backToTop = () => {
   window.scrollTo(0, 0);
@@ -44,6 +46,8 @@ function App() {
         <Route path="/edituserinfo" element={<UpdateUserInfo darkMode={!modeIs} />}></Route>
         
         <Route path="/signIn" element={<SignIn />}></Route>
+        <Route path="/admin" element={<AdminPage />}></Route>
+        <Route path="/employee" element={<EmployeePage />}></Route>
         <Route path="/signUp" element={<SignUp />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

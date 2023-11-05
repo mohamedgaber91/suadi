@@ -112,7 +112,6 @@ const GlobalUtilityStyle = Styled.div`
     }
   }
 
-
   .ant-dropdown{
     a i, a svg, a img {
         ${({ theme }) => (theme.rtl ? 'margin-left' : 'margin-right')}: 8px;
@@ -508,14 +507,14 @@ const TestimonialStyleWrapper = Styled.div`
       left: 0;
       &:before{
         font-family: 'Jost', sans-serif;
-       
+        /* content: url('${require('../static/img/icon/arrow-left.png')}'); */
       }
     }
     .swiper-button-next{
       right: 0;
       &:before{
         font-family: 'Jost', sans-serif;
-       
+        /* content: url('${require('../static/img/icon/arrow-right.png')}'); */
       }
     }
     .theme-1 {
@@ -4199,6 +4198,10 @@ const WizardWrapper = Styled.div`
     &.bordered-wizard{
         padding: 0;
     }
+    &.no-border  {
+  border: none !important;
+  box-shadow: none !important;
+}
     .steps-action button.btn-next svg {
         ${({ theme }) => (theme.rtl ? 'margin-right' : 'margin-left')}: 10px;
         transform: rotateY(${({ theme }) => (theme.rtl ? '180deg' : '0deg')})
@@ -4263,7 +4266,7 @@ const WizardWrapper = Styled.div`
             ${({ theme }) => (!theme.rtl ? 'left' : 'right')}: 100%;
             top: 35px;
             color: #333;
-            
+            /* background-image: url(${require('../static/img/progress.png')}); */
             width: 110%;
             height: 6px;
             background-size: cover;
@@ -4287,14 +4290,14 @@ const WizardWrapper = Styled.div`
     .wizard-step-item{
         .ant-steps-item-container{
             &:after{
-                
+                /* background-image: url(${require('../static/img/progress.png')}); */
             }
         }
     }
     .wizard-steps-item-active{
         .ant-steps-item-container{
             &:after{
-               
+                /* background-image: url(${require('../static/img/progress-active.png')}); */
             }
         }
     }
@@ -4302,7 +4305,7 @@ const WizardWrapper = Styled.div`
     .ant-steps-item-finish{
         .ant-steps-item-container{
             &:after{
-                
+                /* background-image: url(${require('../static/img/progress-success.png')}); */
             }
         }
     }

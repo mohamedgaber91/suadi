@@ -11,7 +11,10 @@ import "./Home.css";
 import Logo from "../../comps/logo/Logo";
 import Services from "../../comps/services/Services";
 import NavBar from "../../comps/NavBar/NavBar";
+import { useState } from "react";
+import  PocketBase  from 'pocketbase'
 function Home(props) {
+
   var { darkMode = false } = props;
   if (darkMode) {
     document.querySelector("body").style.background = "#212529";
