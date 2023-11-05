@@ -117,7 +117,13 @@
     .human h1,.market h1,.cyper h1{
         font-size: 35px !important;
     }
+    .cyper{
+        padding: 35px 20px;
+    }
+    .human .row {
+        padding: 30px 10px;
+    }
 }
 @media (max-width :470px) {
-    
+
 }
