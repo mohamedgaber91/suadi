@@ -12,10 +12,12 @@ import Logo from "../../comps/logo/Logo";
 import Services from "../../comps/services/Services";
 import NavBar from "../../comps/NavBar/NavBar";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/autoplay';
-import SlideNextButton from "./nextSwiper";
-import SlidePrevButton from "./backSwiper";
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+// import SlideNextButton from "./nextSwiper";
+// import SlidePrevButton from "./backSwiper";
 function Home(props) {
   var { darkMode = false } = props;
   if (darkMode) {
@@ -75,15 +77,18 @@ function Home(props) {
             <img src={comp4} alt="..." /> */}
 
             <Swiper
+              modules={[Pagination]}
               spaceBetween={window.innerWidth < 900 ? window.innerWidth < 600 ? 0 : 30 : 100}
               slidesPerView={
-                window.innerWidth < 900 
-                ? window.innerWidth < 600 
-                ? 1 : 3 : 5 }
+                window.innerWidth < 900
+                  ? window.innerWidth < 600
+                    ? 1 : 3 : 5
+              }
+              pagination={{ clickable: true }}
               onSlideChange={() => console.log('slide change')}
               onSwiper={(swiper) => console.log(swiper)}
+
             >
-              <SlidePrevButton />
               <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp1} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
@@ -92,7 +97,6 @@ function Home(props) {
               <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
-              <SlideNextButton />
             </Swiper>
           </>
         }
@@ -124,16 +128,17 @@ function Home(props) {
             <img src={comp4} alt="..." /> */}
 
             <Swiper
+              modules={[Pagination]}
+              pagination={{ clickable: true }}
               spaceBetween={window.innerWidth < 900 ? window.innerWidth < 600 ? 0 : 30 : 100}
               slidesPerView={
-                window.innerWidth < 900 
-                ? window.innerWidth < 600 
-                ? 1 : 3 : 5 
-                }
+                window.innerWidth < 900
+                  ? window.innerWidth < 600
+                    ? 1 : 3 : 5
+              }
               onSlideChange={() => console.log('slide change')}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              <SlidePrevButton />
               <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp1} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
@@ -142,10 +147,9 @@ function Home(props) {
               <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
-              <SlideNextButton />
             </Swiper>
           </>
-          }
+        }
         className="comp Indiv "
         alt="logo"
         title="BCG"
