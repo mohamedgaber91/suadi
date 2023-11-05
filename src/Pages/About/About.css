@@ -19,7 +19,6 @@
     height: 45vh;
     margin: 0;
     padding: 100px;
-
 }
 
 .aboutHeader .aboutHeaderImg{
@@ -37,6 +36,13 @@
     font-size: 1rem;
     text-transform: uppercase;
     color: #3b4640;
+}
+.aboutHeadText{
+    font-size: 21px;
+    padding: 30px;
+}
+.aboutRight,.aboutLeft {
+    padding: 30px;
 }
 .aboutRight .aboutRightText{
     display: inline;
@@ -91,3 +97,27 @@
     height: 45vh;
 }
 
+@media (max-width :990px) {
+    .aboutHeader .row {
+        padding: 0px;
+    }
+    .aboutHeader h1 {
+        font-size: 60px !important;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-shadow: 5px 5px 10px #000;
+    }
+    .aboutRight h1,.aboutLeft h1 {
+        font-size: 35px !important;
+    }
+    .aboutLeft .row {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .human h1,.market h1,.cyper h1{
+        font-size: 35px !important;
+    }
+}
+@media (max-width :470px) {
+    
+}

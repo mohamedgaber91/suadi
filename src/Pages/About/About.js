@@ -16,7 +16,7 @@ function Movies(props) {
         document.querySelector('body').style.background='#fff'
       }
     return (
-        <>
+        <> 
         <NavBar />
             <LeftImg
                 leftSrc={<h1>about fcg</h1>} alt='logo' title=''
@@ -26,19 +26,19 @@ function Movies(props) {
                 divTextClassName='aboutHeaderText' />
 
             {darkMode
-            ? <p className='text-start fs-5 p-5 m-5 ms-0 text-black'>
-                caters to a diverse range of clients and entities, all seeking expert guidance and solutions in various domains. Our services are tailored to meet the needs of:
+            ? <p className='aboutHeadText text-start text-black'>
+                caters to a diverse range of clients and entities, all seeking expert guidance and solutions in various domains. Our services are tailored to meet the needs of :
             </p>
-            :<p className='text-start fs-5 p-5 m-5 ms-0  text-white'>
-                caters to a diverse range of clients and entities, all seeking expert guidance and solutions in various domains. Our services are tailored to meet the needs of:
+            :<p className='aboutHeadText text-start text-white'>
+                caters to a diverse range of clients and entities, all seeking expert guidance and solutions in various domains. Our services are tailored to meet the needs of :
             </p>}
 
             <RightImg
                 rightSrc={img2} alt='about-1' title='Individuals in Career Transition:' haveLogo={false}
                 text={"Whether you're a recent graduate, a mid-career professional seeking a change, or someone re-entering the workforce, our custom career counselling services offer guidance and direction to help you make informed decisions about your career path."}
-                haveButtons={false} className='aboutRight pt-0 p-5' divImgClassName='aboutRightImgDiv'
+                haveButtons={false} className='aboutRight  ' divImgClassName='aboutRightImgDiv'
                 imgClassName='aboutRightImg' colImg='4' colText='8'
-                divTextClassName='aboutRightText ps-5 pe-5' darkMode={darkMode}
+                divTextClassName='aboutRightText' darkMode={darkMode}
             />
             <LeftImg leftSrc={img3} haveLogo={false} alt='about-2' title='Businesses of All Sizes:'
                 text='From start-ups to established enterprises, our business audit services provide valuable insights to enhance efficiency, reduce costs, and optimize operations. We partner with businesses looking to scale, pivot, or improve their overall performance.'
@@ -49,9 +49,9 @@ function Movies(props) {
             <RightImg
                 rightSrc={img4} alt='about-1' title='Entrepreneurs and Business Owners:' haveLogo={false}
                 text={"Entrepreneurs and business owners benefit from our strategic consulting services, enabling them to refine business plans, identify growth opportunities, and make informed decisions that lead to success"}
-                haveButtons={false} className='aboutRight pt-5 p-5' divImgClassName='aboutRightImgDiv'
+                haveButtons={false} className='aboutRight ' divImgClassName='aboutRightImgDiv'
                 imgClassName='aboutRightImg' colImg='4' colText='8'
-                divTextClassName='aboutRightText ps-5 pe-5' darkMode={darkMode}
+                divTextClassName='aboutRightText ' darkMode={darkMode}
             />
             <RightImg
                 rightSrc={img5} alt='Cybersecurity' title='Organizations Concerned About Cybersecurity: '
@@ -69,16 +69,16 @@ function Movies(props) {
              <LeftImg
                 leftSrc={''} alt='HUMAN' title='Human Resources Departments: '
                 text='HR teams can leverage our career counseling services to provide valuable guidance and support to employees navigating their career paths within the organization, fostering employee satisfaction and retention.'
-                darkMode={!darkMode} className='human my-5' divImgClassName='humanImg'
+                darkMode={!darkMode} className='human' divImgClassName='humanImg'
                 colImg='6' colText='6' haveLogo={true}
                 divTextClassName='humanText' />
 
             <RightImg
                 rightSrc={img2} alt='about-1' title='Individuals in Career Transition:' haveLogo={false}
                 text={"Whether you're a recent graduate, a mid-career professional seeking a change, or someone re-entering the workforce, our custom career counselling services offer guidance and direction to help you make informed decisions about your career path."}
-                haveButtons={false} className='aboutRight pt-0 p-5 mt-5' divImgClassName='aboutRightImgDiv'
+                haveButtons={false} className='aboutRight' divImgClassName='aboutRightImgDiv'
                 imgClassName='aboutRightImg' colImg='4' colText='8'
-                divTextClassName='aboutRightText ps-5 pe-5 ' darkMode={darkMode}
+                divTextClassName='aboutRightText  ' darkMode={darkMode}
             />
             <LeftImg leftSrc={img3} haveLogo={false} alt='about-2' title='Businesses of All Sizes:'
                 text='From start-ups to established enterprises, our business audit services provide valuable insights to enhance efficiency, reduce costs, and optimize operations. We partner with businesses looking to scale, pivot, or improve their overall performance.'
@@ -89,9 +89,9 @@ function Movies(props) {
             <RightImg
                 rightSrc={img4} alt='about-1' title='Entrepreneurs and Business Owners:' haveLogo={false}
                 text={"Entrepreneurs and business owners benefit from our strategic consulting services, enabling them to refine business plans, identify growth opportunities, and make informed decisions that lead to success"}
-                haveButtons={false} className='aboutRight pt-5 p-5' divImgClassName='aboutRightImgDiv'
+                haveButtons={false} className='aboutRight ' divImgClassName='aboutRightImgDiv'
                 imgClassName='aboutRightImg' colImg='4' colText='8'
-                divTextClassName='aboutRightText ps-5 pe-5' darkMode={darkMode}
+                divTextClassName='aboutRightText ' darkMode={darkMode}
             />
         </>
     );
