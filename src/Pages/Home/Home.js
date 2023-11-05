@@ -11,8 +11,18 @@ import "./Home.css";
 import Logo from "../../comps/logo/Logo";
 import Services from "../../comps/services/Services";
 import NavBar from "../../comps/NavBar/NavBar";
+
 import { useState } from "react";
 import  PocketBase  from 'pocketbase'
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+// import SlideNextButton from "./nextSwiper";
+// import SlidePrevButton from "./backSwiper";
+
 function Home(props) {
 
   var { darkMode = false } = props;
@@ -23,9 +33,10 @@ function Home(props) {
   }
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <RightImg
         rightSrc={img}
+        divImgClassName="imgG"
         alt="business"
         title="welcome to"
         haveLogo={true}
@@ -36,7 +47,7 @@ function Home(props) {
         colImg="6"
         colText="6"
         divTextClassName="homeText"
-        darkMode={darkMode}
+        darkMode={false}
       />
       <LeftImg
         leftSrc={<Logo />}
@@ -46,7 +57,7 @@ function Home(props) {
                 solutions for individuals and businesses in the ever-evolving landscape of careers, business strategies,
                 and cybersecurity. Our comprehensive suite of services includes custom career counseling, business audits,
                 cybersecurity solutions, market data opinion polls, and a range of other valuable offerings."
-        darkMode={darkMode}
+        darkMode={false}
         className="welcome"
         imgClassName="welcomeImg"
         colImg="6"
@@ -54,14 +65,14 @@ function Home(props) {
         haveLogo={true}
         divTextClassName={`${darkMode ? "darkLogoBorder" : "logoBorder"} `}
       />
-     
-        <Services darkMode={darkMode} showNavbar="false" />
- 
-      
+
+      <Services darkMode={false} showNavbar="false" />
+
+
       <LeftImg
         leftSrc={
           <>
-            <img src={comp1} alt="..." />
+            {/* <img src={comp1} alt="..." />
             <img src={comp3} alt="..." />
             <img src={comp1} alt="..." />
             <img src={comp3} alt="..." />
@@ -69,7 +80,30 @@ function Home(props) {
             <img src={comp2} alt="..." />
             <img src={comp4} alt="..." />
             <img src={comp2} alt="..." />
-            <img src={comp4} alt="..." />
+            <img src={comp4} alt="..." /> */}
+
+            <Swiper
+              modules={[Pagination]}
+              spaceBetween={window.innerWidth < 900 ? window.innerWidth < 600 ? 0 : 30 : 100}
+              slidesPerView={
+                window.innerWidth < 900
+                  ? window.innerWidth < 600
+                    ? 1 : 3 : 5
+              }
+              pagination={{ clickable: true }}
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+
+            >
+              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp1} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp} className="bigComp" alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
+            </Swiper>
           </>
         }
         className="comp welcome "
@@ -77,7 +111,7 @@ function Home(props) {
         title="BCG"
         text="BCG is a global consulting firm that partners with leaders in business and society
                  to tackle their most important challenges. Learn more about BCG"
-        darkMode={darkMode}
+        darkMode={false}
         divImgClassName="companiesImg"
         colImg="12"
         colText="12"
@@ -89,7 +123,7 @@ function Home(props) {
       <LeftImg
         leftSrc={
           <>
-            <img src={comp1} alt="..." />
+            {/* <img src={comp1} alt="..." />
             <img src={comp3} alt="..." />
             <img src={comp1} alt="..." />
             <img src={comp3} alt="..." />
@@ -97,7 +131,29 @@ function Home(props) {
             <img src={comp2} alt="..." />
             <img src={comp4} alt="..." />
             <img src={comp2} alt="..." />
-            <img src={comp4} alt="..." />
+            <img src={comp4} alt="..." /> */}
+
+            <Swiper
+              modules={[Pagination]}
+              pagination={{ clickable: true }}
+              spaceBetween={window.innerWidth < 900 ? window.innerWidth < 600 ? 0 : 30 : 100}
+              slidesPerView={
+                window.innerWidth < 900
+                  ? window.innerWidth < 600
+                    ? 1 : 3 : 5
+              }
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp1} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp} className="bigComp" alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp2} alt="..." /></SwiperSlide>
+              <SwiperSlide> <img src={comp4} alt="..." /></SwiperSlide>
+            </Swiper>
           </>
         }
         className="comp Indiv "

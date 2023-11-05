@@ -27,9 +27,9 @@ export default function RightImg(props) {
                         {haveButtons
                             ? <div className='signBtns'>
                                 <Link to="/signIn" > <Button title='sign in'
-                                    className={` ${darkMode ? 'button-green' : ''}`} /></Link>
+                                    className={` ${darkMode ? '' : ''}`} /></Link>
                                 <Link to="/signUp" > <Button title='sign up'
-                                    className={` ${darkMode ? 'button-green' : ''}`} /></Link>
+                                    className={` ${darkMode ? '' : ''}`} /></Link>
                             </div>
                             : ''}
                     </div>

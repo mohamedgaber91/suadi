@@ -27,7 +27,7 @@ const Services = (props) => {
           Our services
         </h1>
         <div className="row mt-5 pt-5">
-          <div className="col-4 serverCol">
+          <div className="col-12 col-lg-4 mb-3 serverCol">
             <div
               className="card bg-success position-relative serverCard pb-2"
               style={{ width: "" }}
@@ -64,7 +64,7 @@ const Services = (props) => {
               </div>
             </div>
           </div>
-          <div className="col-4 serverCol">
+          <div className="col-12 col-lg-4 mb-3 serverCol">
             <div
               className="card bg-success position-relative serverCard pb-2"
               style={{ width: "" }}
@@ -106,7 +106,7 @@ const Services = (props) => {
               </div>
             </div>
           </div>
-          <div className="col-4 serverCol">
+          <div className="col-12 col-lg-4 mb-3 serverCol">
             <div
               className="card bg-success position-relative serverCard pb-2"
               style={{ width: "" }}

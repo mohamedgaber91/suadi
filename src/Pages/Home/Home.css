@@ -1,30 +1,35 @@
-.home{
+.home {
     background: url("../../imgs/resize.jpg") no-repeat center;
     background-size: cover;
     padding: 5px 0;
 }
-.homeImg{
+
+.homeImg {
     width: 100%;
     height: 80%;
 }
-.homeText h1{
+
+.homeText h1 {
     text-shadow: 3px 3px 5px #000;
 }
-.liftText{
+
+.liftText {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.welcome{
+
+.welcome {
     background: url('../../imgs/welcome.jpg') no-repeat #198754;
     background-size: cover;
     background-position: 0px 30%;
     padding: 0;
-    margin:10px 0;
+    margin: 10px 0;
     box-shadow: 1px 1px 10px #198754;
 }
-.welcome .row  {
+
+.welcome .row {
     display: flex;
     align-content: center;
     align-items: center;
@@ -33,85 +38,153 @@
     margin: 0;
     padding: 100px;
 }
-.welcome .row .logoBorder .holder h1,.darkLogoBorder .holder h1{
+
+.welcome .row .logoBorder .holder h1, .darkLogoBorder .holder h1 {
     font-size: 3rem;
 }
-.welcome .row .logoBorder .holder p,.darkLogoBorder .holder p{
+
+.welcome .row .logoBorder .holder p, .darkLogoBorder .holder p {
     font-size: 1.3rem;
 }
-.logoBorder,.darkLogoBorder {
+
+.logoBorder, .darkLogoBorder {
     border-left: 5px solid #ffff;
     padding-left: 10%;
     display: flex;
     height: auto;
     align-items: center;
 }
+
 .darkLogoBorder {
     border-left: 5px solid #212529;
 }
-.companiesImg {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
-}
-.companiesImg .holder{
+
+.companiesImg .holder {
     display: flex;
     align-items: flex-end;
 }
-.companiesImg .holder img{
-    width: 7vw;
+
+.companiesImg .holder img {
+    width: 100px;
     height: auto;
     margin: 30px 20px;
 }
-.companiesImg .holder .bigComp{
-    width: 13vw;
-    height: auto;
-    box-shadow: 5px 5px 10px #0000007d;
-    border-radius: 50%;
+
+.companiesImg .holder .swiper-slide {
+    text-align: center;
 }
+
 .bcg {
     display: flex;
     justify-content: center;
 }
-.bcg .holder{
+
+.bcg .holder {
     width: 63%;
     text-align: center;
     font-size: x-large;
 }
+
 .Indiv {
     background-size: cover;
     background-position: 0px 30%;
     padding: 100px;
-    margin:10px 0;
+    margin: 10px 0;
 }
-.Indiv .row{
+
+.Indiv .row {
     background-size: cover;
     background-position: 0px 30%;
     padding: 0;
-    margin:10px 0;
+    margin: 10px 0;
 }
-.comp h2  {
+
+.comp h2 {
     text-transform: uppercase;
 }
-.Indiv h2 ,.Indiv {
+
+.Indiv h2, .Indiv {
     color: #198754;
 
 }
 
-.signBtns a{
+.signBtns a {
     text-decoration: none;
     margin: .7rem;
 }
+
 @media (max-width :990px) {
     h1 {
-        font-size: 200% !important;
+        font-size: 60px !important;
     }
+
     p {
         font-size: 100% !important;
     }
+
+    .homeText {
+        margin: 100px 0;
+        z-index: 5;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .imgG {
+        position: absolute;
+        width: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        top: 150px;
+    }
+    .logoBorder, .darkLogoBorder{
+        border: none;
+    }
+
     .signBtns {
         text-align: center;
         margin: 20px 0;
     }
 
+    .companiesImg .holder .swiper {
+        --swipe: 3
+    }
+
+    .welcome .row {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        background-color: #198754ab;
+        width: 100%;
+        margin: 0;
+        padding: 100px 0;
+    }
+    .welcome .row .logoBorder .holder h1, .darkLogoBorder .holder h1 {
+        text-align: center;
+    }
+    .bcg .holder {
+        font-size: large;
+    }
+    .Indiv {
+        background-size: cover;
+        background-position: 0px 30%;
+        padding: 0px;
+        margin: 10px 0;
+    }
+
+}
+@media (max-width :470px) {
+    h1 {
+        font-size: 43px !important;
+    }
+    .imgG {
+        width: 95%;
+    }
+    .logo h1 {
+        font-size: 60px !important;
+    }
+    .bcg .holder {
+        font-size: large;
+    }
 }

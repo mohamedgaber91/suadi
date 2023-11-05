@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import NavBar from "./comps/NavBar/NavBar";
+// import NavBar from "./comps/NavBar/NavBar";
 import Home from "./Pages/Home/Home";
 import SignIn from "./Pages/SignIn/SignIn";
 import SignUp from "./Pages/SignUp/SignUp";
@@ -25,7 +25,6 @@ export const switchMode = (darkMode) => {
 
 function App() {
   const modeIs = useSelector((state) => state.darkMode.mode);
-  console.log(modeIs);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
