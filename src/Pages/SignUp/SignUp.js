@@ -68,8 +68,8 @@ const apiUrl=useSelector((state)=>state.urlValue.value)
           .getElementById("passwordNote")
           .classList.add("visually-hidden");
       }
-    } else if (e.target.name === "nameInput") {
-      setUserData({ ...userData, name: e.target.value });
+    } else if (e.target.name === "emailInput") {
+      setUserData({ ...userData, email: e.target.value });
     }
   };
   const sendData = async() => {
