@@ -65,23 +65,27 @@ function SignIn() {
   const sendData = async () => {
     console.log("userData", userData);
     const pb = new PocketBase(apiUrl);
-    const authData = await pb
-      .collection("users")
-      .authWithPassword(userData.email, userData.password)
-      .then(() => {
-        openNotificationWithIcon("success", "welcome");
-      })
-      .catch((err) => {
-        openNotificationWithIcon(
-          "error",
-          "faild to login , please enter your correct information"
-        );
-      });
+
+
 
     // after the above you can also access the auth data from the authStore
     // console.log(pb.authStore.isValid);
     // console.log(pb.authStore.token);
     // console.log(pb.authStore.model.id);
+    const authData = await pb.collection('users').authWithPassword(
+      userData.email,
+      userData.password,
+  ).then((res)=> {
+        pb.authStore.save(res.token,res.record);
+       console.log('asdasdasdasd',pb.authStore.model);
+    openNotificationWithIcon("success","welcome");
+    navigate('/home');
+  }).catch((err)=>{
+openNotificationWithIcon("error","faild to login , please enter your correct information")
+  })
+  
+
+
   };
 
   return (
