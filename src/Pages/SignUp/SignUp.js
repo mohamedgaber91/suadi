@@ -86,7 +86,7 @@ const apiUrl=useSelector((state)=>state.urlValue.value)
         "password":userData.password,
         "passwordConfirm":userData.password,
         "name": userData.name,
-        "role": "g92k24f0ap50jsh",
+       
         "phone": userData.phone
     };
     

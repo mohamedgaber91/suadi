@@ -69,7 +69,9 @@ function SignIn() {
     const authData = await pb.collection('users').authWithPassword(
       userData.email,
       userData.password,
-  ).then(()=>{
+  ).then((res)=> {
+        pb.authStore.save(res.token,res.record);
+       console.log('asdasdasdasd',pb.authStore.model);
     openNotificationWithIcon("success","welcome");
     navigate('/signIn');
   }).catch((err)=>{
