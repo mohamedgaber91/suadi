@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Services from "./comps/services/Services";
 import UpdateUserInfo from "./Pages/updateUserInfo/updateUserInfo";
+import Table from "./comps/table/Table";
 
 export const backToTop = () => {
   window.scrollTo(0, 0);
@@ -47,6 +48,7 @@ function App() {
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer />
+      <Table />
     </div>
   );
 }

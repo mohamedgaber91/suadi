@@ -1,0 +1,19 @@
+.search{
+        height: 45px;
+        font-size: 20px;
+        border-radius: 5px;
+        width: 50%;
+        margin: 5px;
+        padding: 10px;
+        border: 1px solid #198754;
+        outline: #198754;
+}
+.tableMain{
+    height: 100%;
+}
+
+
+.bOHpqW:nth-child(odd) {
+
+    background: #198754;
+}
