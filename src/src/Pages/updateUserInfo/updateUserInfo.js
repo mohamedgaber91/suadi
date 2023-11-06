@@ -28,6 +28,7 @@ function UpdateUserInfo() {
   const apiUrl = useSelector((state) => state.urlValue.value);
   const pb = new PocketBase(apiUrl);
   const [userInfo, setUserInfo] = useState([pb.authStore.model]);
+
   console.log("user info is ", userInfo);
   const [userData, setUserData] = useState({
     name: "",
@@ -91,7 +92,7 @@ function UpdateUserInfo() {
     };
 
     const record = pb.collection("users")
-      .update(userInfo.id, data)
+      .update(userInfo[0].id, data)
       .then((res) => {
         console.log(res);
 
@@ -123,7 +124,7 @@ const deleteAccount=()=>{
     title: 'Confirm',
     content: 'Are you sure you want to Delete Your Account?',
     onOk() {
-      pb.collection('users').delete(userInfo.id);
+      pb.collection('users').delete(userInfo[0].id);
       navigate("/");
     },
     onCancel() {
@@ -139,7 +140,7 @@ const deleteAccount=()=>{
       <NavBar />
       <div className="signIn">
         <Heading className="mb-6 text-xl font-semibold mb-5" as="h4">
-          Welcome {userInfo.length>1?userInfo.username:"Our Client"}
+          Welcome {userInfo.length>0?userInfo[0].username:"Our Client"}
         </Heading>
         <div className="mb-3 row">
           <label htmlFor="nameInput" className="col-sm-2 col-form-label">
@@ -151,7 +152,7 @@ const deleteAccount=()=>{
               name="nameInput"
               className="form-control"
               id="nameInput"
-              value= {userInfo.length>1?userInfo.username:"" } 
+              value= {userInfo.length>0?userInfo[0].username:"" } 
               onChange={(e) => handleOnChange(e)}
             />
             <span
@@ -173,7 +174,7 @@ const deleteAccount=()=>{
               name="emailInput"
               className="form-control"
               id="emailInput"
-              value={userInfo.length>1?userInfo.email:""}
+              value={userInfo.length>0?userInfo[0].email:""}
               onChange={(e) => handleOnChange(e)}
             />
             <span
@@ -192,7 +193,7 @@ const deleteAccount=()=>{
           <div className="col-sm-10 text-start">
             <PhoneInput
               country={"sa"}
-              value={userInfo.phone}
+              value={userInfo[0].phone}
               preferredCountries={["eg", "qa", "ku", "ae", "sa"]}
               onChange={(phone) => setUserData({ ...userData, phone })}
               inputStyle={{ width: "100%" }}

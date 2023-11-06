@@ -68,8 +68,8 @@ const apiUrl=useSelector((state)=>state.urlValue.value)
           .getElementById("passwordNote")
           .classList.add("visually-hidden");
       }
-    } else if (e.target.name === "nameInput") {
-      setUserData({ ...userData, name: e.target.value });
+    } else if (e.target.name === "emailInput") {
+      setUserData({ ...userData, email: e.target.value });
     }
   };
   const sendData = async() => {
@@ -86,7 +86,7 @@ const apiUrl=useSelector((state)=>state.urlValue.value)
         "password":userData.password,
         "passwordConfirm":userData.password,
         "name": userData.name,
-        "role": "g92k24f0ap50jsh",
+       
         "phone": userData.phone
     };
     
