@@ -9,7 +9,7 @@ import HeaderPage from "../../comps/header";
 import PocketBase from 'pocketbase';
 import { useDispatch, useSelector } from "react-redux";
 import { returnUrl } from "../../rtk/slices/UrlSlice";
-function SignIn() {
+function SignUp() {
   let regEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   let regPass = /[!#%&$^&*()_+{[}]|]|[0-9]|[A-Z]/;
   let regPassNo = /[0-9]/;
@@ -86,7 +86,6 @@ const apiUrl=useSelector((state)=>state.urlValue.value)
         "password":userData.password,
         "passwordConfirm":userData.password,
         "name": userData.name,
-       
         "phone": userData.phone
     };
     
@@ -216,4 +215,4 @@ const apiUrl=useSelector((state)=>state.urlValue.value)
   );
 }
 
-export default SignIn;
+export default SignUp;

@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit'
 var initialState = {
   value: "http://127.0.0.1:8090",
 }
-
 export const urlSlice = createSlice({
   name: 'urlslice',
   initialState,
