@@ -94,7 +94,7 @@ const apiUrl=useSelector((state)=>state.urlValue.value)
       console.log(res);
       
      openNotificationWithIcon("success",`welcome ${userData.name}`)
-     navigate("/home")
+     navigate("/signIn")
     })
     
     .catch((err)=>{
