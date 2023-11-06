@@ -71,7 +71,7 @@ function SignIn() {
       userData.password,
   ).then((res)=> {
         pb.authStore.save(res.token,res.record);
-       console.log('asdasdasdasd',pb.authStore.model);
+       
     openNotificationWithIcon("success","welcome");
     navigate('/home');
   }).catch((err)=>{
