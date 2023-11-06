@@ -73,7 +73,7 @@ function SignIn() {
         pb.authStore.save(res.token,res.record);
        console.log('asdasdasdasd',pb.authStore.model);
     openNotificationWithIcon("success","welcome");
-    navigate('/signIn');
+    navigate('/home');
   }).catch((err)=>{
 openNotificationWithIcon("error","faild to login , please enter your correct information")
   })
