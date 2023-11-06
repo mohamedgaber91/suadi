@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DropdownStyle } from './dropdown-style';
-import { GlobalUtilityStyle } from '../../container/styled';
+import { GlobalUtilityStyle } from '../../components/styled';
 
 function Dropdown(props) {
   const { content, placement, title, action, children, style, className } = props;

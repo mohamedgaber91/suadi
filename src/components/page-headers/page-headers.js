@@ -20,7 +20,7 @@ function PageHeader(props) {
           <Breadcrumb.Item key={index} className="inline-flex items-start">
             <ReactSVG
               className="relative top-0.5 ltr:mr-2 rtl:ml-2 [&>div>svg]:text-[#8c90a4] dark:[&>div>svg]:text-white60 "
-              src={require(`../../static/img/icon/home.svg`).default}
+              // src={require(`../../static/img/icon/home.svg`).default}
             />{' '}
             <Link
               to={route.path}

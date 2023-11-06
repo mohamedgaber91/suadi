@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////التثبيت////////////////////////////////////////
-جوا ملف الرياكت نكتب          npm install pocketbase --save
+          npm install pocketbase --save
 
 
 وبعد كدا
@@ -23,16 +23,15 @@
 ////////////////////////////Register New user///////////////////////////////////////////////
 
 import PocketBase from 'pocketbase';
+const [apiUrl,setUrl]=useState("http://127.0.0.1:8090")
+const pb = new PocketBase(apiUrl);
 
-const pb = new PocketBase('http://0.0.0.0:8090');
 
-...
 
 // example create data
 const data = {
     "username": "test_username",
     "email": "test@example.com",
-    "emailVisibility": true,
     "password": "12345678",
     "passwordConfirm": "12345678",
     "name": "test",
@@ -40,7 +39,10 @@ const data = {
     "phone": "test"
 };
 
-const record = await pb.collection('users').create(data);
+const record = await pb.collection('users').create(data).then(()=>{
+  console.log( "token",  pb.authStore.token);  
+})
+
 
 
 
@@ -113,6 +115,7 @@ const record = await pb.collection('users').update('RECORD_ID', data);
 //////////////////////////////////////////////Delete user Email////////////////////////////////////////////////////////////////////
 
 import PocketBase from 'pocketbase';
+import { useState } from 'react'
 
 const pb = new PocketBase('http://0.0.0.0:8090');
 

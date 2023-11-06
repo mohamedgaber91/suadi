@@ -1,12 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./SignIn.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { openNotificationWithIcon } from './../../services/helper/ui/index';
 import HeaderPage from "../../comps/header";
-
+import PocketBase from 'pocketbase';
+import { useDispatch, useSelector } from "react-redux";
+import { returnUrl } from "../../rtk/slices/UrlSlice";
 function SignIn() {
-    const navigate=useNavigate()
+  const navigate=useNavigate()
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(returnUrl())
+    
+  },[])
+ 
+  const apiUrl=useSelector((state)=>state.urlValue.value)
+  const pb = new PocketBase(apiUrl);
+  const[userInfo,setUserInfo]=useState(pb.authStore.model)
+  console.log("user info is ", userInfo)
+  // console.log("api",apiUrl)
+
   let regEmail = /[#%&$^&*()_+{[}]|^[@.]|[@.]$|(@){2,10}/;
 
   const [userData, setUserData] = useState({
@@ -49,35 +63,25 @@ function SignIn() {
       }
     }
   };
-  const sendData = () => {
+  const sendData =async () => {
     console.log("userData", userData);
-    axios
-      .post('http://192.168.43.123:1337/api/auth/local', {
-        identifier: userData.email,
-        password: userData.password,
-      })
-      .then(response => {
-        // Handle success.
-        console.log('Well done!');
-        console.log('User profile', response.data.user);
-        console.log('User token', response.data.jwt);
+    const pb = new PocketBase(apiUrl);
+    const authData = await pb.collection('users').authWithPassword(
+      userData.email,
+      userData.password,
+  ).then((res)=> {
+        pb.authStore.save(res.token,res.record);
+       
+    openNotificationWithIcon("success","welcome");
+    navigate('/home');
+  }).catch((err)=>{
+openNotificationWithIcon("error","faild to login , please enter your correct information")
+  })
   
-        // Save the JWT token to localStorage
-        // localStorage.setItem("jwt", response.data.jwt);
-  
-        // Update the userData state if needed
-        setUserData({
-          email: response.data.user.email, // Update with user data from the response
-          password: "", // You may or may not want to clear the password here
-        });
-  
-        // Redirect the user to the home page
-        navigate("/home");
-      })
-      .catch(error => {
-        // Handle error.
-        console.log('An error occurred:', error.response);
-      });
+  // after the above you can also access the auth data from the authStore
+  // console.log(pb.authStore.isValid);
+  // console.log(pb.authStore.token);
+  // console.log(pb.authStore.model.id);
   };
   
   return (
@@ -97,6 +101,7 @@ function SignIn() {
             name="emailInput"
             className="form-control"
             id="exampleFormControlInput1"
+           
             placeholder="name@example.com"
             onChange={(e) => handleOnChange(e)}
           />
@@ -130,15 +135,18 @@ function SignIn() {
           </span>
         </div>
       </div>
-      <button type="button" className="btn btn-success " onClick={sendData}>
+      <div className="mt-5">
+        <button type="button" className="btn  btn-primary " onClick={sendData}>
         Sign In
       </button>
-      <Link to={"/signUp"} className="btn btn-warning p-0 ms-5">
+      <Link to={"/signUp"} className="btn btn-success p-0 ms-5">
         {" "}
-        <button type="button" className="btn btn-warning text-white     ">
+        <button type="button" className="btn btn-success text-white     ">
           Sign up
         </button>
       </Link>
+      </div>
+      
     </div>
     </>
   );

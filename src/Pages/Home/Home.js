@@ -11,6 +11,10 @@ import "./Home.css";
 import Logo from "../../comps/logo/Logo";
 import Services from "../../comps/services/Services";
 import NavBar from "../../comps/NavBar/NavBar";
+
+import { useState } from "react";
+import  PocketBase  from 'pocketbase'
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -18,7 +22,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // import SlideNextButton from "./nextSwiper";
 // import SlidePrevButton from "./backSwiper";
+
 function Home(props) {
+
   var { darkMode = false } = props;
   if (darkMode) {
     document.querySelector("body").style.background = "#212529";
