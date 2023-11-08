@@ -69,7 +69,7 @@ export const EmployeeTable = () => {
   ];
   const [data, setData] = useState(employees);
 
-  const [editingRow, setEditingRow] = useState(null); // Track the currently editing row
+  // const [editingRow, setEditingRow] = useState(null); // Track the currently editing row
 
   return (
     <>
