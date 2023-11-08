@@ -9,6 +9,8 @@ import { Edit as EditIcon, Delete as DeleteIcon, Email as EmailIcon } from '@mui
 import { Button } from '../../components/buttons/buttons';
 import { NavLink } from 'react-router-dom';
 
+
+
 export const EmployeeTable = () => {
 
 
@@ -67,6 +69,8 @@ export const EmployeeTable = () => {
   ];
   const [data, setData] = useState(employees);
 
+  const [editingRow, setEditingRow] = useState(null); // Track the currently editing row
+
   return (
     <>
       <div className='table-content mb-5  '>
@@ -74,6 +78,15 @@ export const EmployeeTable = () => {
         <MaterialReactTable
           columns={columns}
           data={data}
+          onEditingRowSave={({ table, values,row }) => {
+            //validate data
+            row.original = values
+            console.log(values)
+            console.log(row.original)
+            //save data to api
+
+            table.setEditingRow(null); //exit editing mode
+          }}
           enableRowActions
           renderRowActions={({ row, table }) => (
             <Box sx={{ display: 'flex', flexWrap: 'nowrap', gap: '8px' }}>
@@ -81,7 +94,8 @@ export const EmployeeTable = () => {
                 color="primary"
                 onClick={() =>
                   window.open(
-                    `mailto:kevinvandy@mailinator.com?subject=Hello ${row.original.firstName}!`,
+                    `mailto: ${row.original.consultationEmail}?subject=Hello ${row.original.employeeName}! 
+                      /*Message for employees */ ` ,
                   )
                 }
               >
@@ -91,8 +105,6 @@ export const EmployeeTable = () => {
                 color="secondary"
                 onClick={() => {
                   table.setEditingRow(row);
-                  // data.replace(row.index, 1);
-                  // setData([...data]);
                   console.log(row.original)
                 }}
               >
