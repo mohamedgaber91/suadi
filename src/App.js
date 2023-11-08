@@ -13,6 +13,7 @@ import Services from "./comps/services/Services";
 import UpdateUserInfo from "./Pages/updateUserInfo/updateUserInfo";
 import AdminPage from "./Pages/adminPages/index";
 import EmployeePage from "./Pages/employeePage";
+import AddPage from "./Pages/addPage/AddPage";
 
 export const backToTop = () => {
   window.scrollTo(0, 0);
@@ -30,7 +31,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App" >
+    <div className="App"
+    style={{ background: modeIs ? "#212529" : "#fff" }} >
       <Routes>
         <Route path="/" element={<SignIn darkMode={modeIs} />}>
           {" "}
@@ -38,7 +40,7 @@ function App() {
         <Route path="/home" element={<Home darkMode={modeIs} />}></Route>
         <Route
           path="/home/services"
-          element={<Services showNavbar="true" />}
+          element={<Services darkMode={!modeIs} showNavbar="true" />}
         ></Route>
 
         <Route path="/about" element={<About darkMode={!modeIs} />}></Route>
@@ -49,6 +51,7 @@ function App() {
 
         <Route path="/signIn" element={<SignIn />}></Route>
         <Route path="/admin" element={<AdminPage darkMode={modeIs} />}></Route>
+        <Route path="/admin/employee/add" element={<AddPage darkMode={modeIs} />}></Route>
         <Route path="/employee" element={<EmployeePage />}></Route>
         <Route path="/signUp" element={<SignUp />}></Route>
         <Route path="*" element={<NotFound />}></Route>

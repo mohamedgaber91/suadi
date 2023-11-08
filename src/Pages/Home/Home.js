@@ -66,7 +66,7 @@ function Home(props) {
         divTextClassName={`${darkMode ? "darkLogoBorder" : "logoBorder"} `}
       />
 
-      <Services darkMode={false} showNavbar="false" />
+      <Services darkMode={!darkMode}  showNavbar="false" />
 
 
       <LeftImg
@@ -95,7 +95,10 @@ function Home(props) {
               onSwiper={(swiper) => console.log(swiper)}
 
             >
-              <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
+              <SwiperSlide>
+              <img src={comp3} alt="..." />
+              
+              </SwiperSlide>
               <SwiperSlide> <img src={comp1} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp3} alt="..." /></SwiperSlide>
               <SwiperSlide> <img src={comp} className="bigComp" alt="..." /></SwiperSlide>

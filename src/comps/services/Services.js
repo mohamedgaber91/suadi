@@ -13,20 +13,20 @@ import NavBar from "../NavBar/NavBar";
 
 
 const Services = (props) => {
-  const { darkMode = false ,showNavbar} = props;
+  const { darkMode, showNavbar } = props;
   return (
     <>
-     {showNavbar==="true"?<NavBar/>:<></>}
+      {showNavbar === "true" ? <NavBar /> : <></>}
 
       <div
-        className={`container ${
-          darkMode ? "text-black" : "text-white"
-        } mb-5 pt-5 `}
+        className={`container ${darkMode ? "text-black" : "text-white"
+          } mb-5 pt-5 `}
+        style={{ background: darkMode ? "#fff" : "#212529" }}
       >
         <h1 style={{ color: "#198754", textTransform: "uppercase" }}>
           Our services
         </h1>
-        <div className="row mt-5 pt-5">
+        <div className="row mt-5 pt-5" style={{ background: darkMode ? "#fff" : "#212529" }}>
           <div className="col-12 col-lg-4 mb-3 serverCol">
             <div
               className="card bg-success position-relative serverCard pb-2"
@@ -53,13 +53,12 @@ const Services = (props) => {
                   </p>
                 </div>
                 <Link
-                  to="/services"
+                  to="/home/services"
                   onClick={() => backToTop()}
-                  className={`btn btn-warning ${
-                    darkMode ? "button-green" : "text-white"
-                  } mt-5`}
+                  className={`btn btn-warning ${darkMode ? "button-green" : "text-white"
+                    } mt-5`}
                 >
-                  cybersecurity
+                  Consulting
                 </Link>
               </div>
             </div>
@@ -95,13 +94,12 @@ const Services = (props) => {
                   </p>
                 </div>
                 <Link
-                  to="/services"
+                  to="/home/services"
                   onClick={() => backToTop()}
-                  className={`btn btn-warning ${
-                    darkMode ? "button-green" : "text-white"
-                  } mt-5`}
+                  className={`btn btn-warning ${darkMode ? "button-green" : "text-white"
+                    } mt-5`}
                 >
-                  cybersecurity
+                  Business
                 </Link>
               </div>
             </div>
@@ -132,11 +130,10 @@ const Services = (props) => {
                   </p>
                 </div>
                 <Link
-                  to="/services"
+                  to="/home/services"
                   onClick={() => backToTop()}
-                  className={`btn btn-warning ${
-                    darkMode ? "button-green" : "text-white"
-                  } mt-5`}
+                  className={`btn btn-warning ${darkMode ? "button-green" : "text-white"
+                    } mt-5`}
                 >
                   cybersecurity
                 </Link>
@@ -144,7 +141,7 @@ const Services = (props) => {
             </div>
           </div>
         </div>
-        <Link to="/services" onClick={() => backToTop()}>
+        <Link to="/home/services" onClick={() => backToTop()}>
           <Button
             title="OUR CUSTOMERS"
             className="mt-5 fs-3 rounded-pill ps-3 pe-3"

@@ -2,18 +2,21 @@
 
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./EmployeePage.css";
+import Quill from '../../comps/quill/quill';
 
-import "./EmployeePage.css"; 
 
 function EmployeePage() {
+
+
+  //   const history = useHistory();
+
   const [formData, setFormData] = useState({
     userName: "",
     message: "",
     status: "",
   });
-
-  //   const history = useHistory();
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -21,60 +24,84 @@ function EmployeePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    formData.message = messageReport
     console.log(formData);
 
   };
+  const handleQuillChange = (event) => {
+    setMessageReport(event)
+    // console.log(messageReport)
+  };
+  const [messageReport, setMessageReport] = useState('');
 
   return (
-    <div className="employee-form-container">
-      <h2 className="form-heading mt-5">Consultation Information</h2>
-      <form onSubmit={handleSubmit} className="form">
-        <div className="form-group">
-          <label htmlFor="userName">User Name</label>
-          <input
-          className=" form-control"
-            type="text"
-            id="userName"
-            name="userName"
-            value={formData.userName}
-            onChange={handleInputChange}
-            required
-          />
+    <>
+      <div className="signIn">
+        <h3 className='m-5 text-primary'>Consultation Information</h3>
+        <div className="mb-3 row userName mt-5">
+          <label htmlFor="userName" className="col-sm-2 col-form-label">
+            User Name
+          </label>
+          <div className="col-sm-10 text-start">
+            <select
+              required
+              type="select"
+              name="userName"
+              className="form-control "
+              id="userName"
+              placeholder="userName"
+              onChange={handleInputChange}
+              defaultValue="chose"
+            >
+              <option disabled >chose</option>
+              <option>User_1</option>
+              <option>User_2</option>
+              <option>User_3</option>
+              <option>User_4</option>
+            </select>
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="message">Your Report</label>
-          <textarea
-          className=" form-control"
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleInputChange}
-            required
-            rows={15}
-          ></textarea>
+        <div className="mb-3 row report mt-5">
+          <label htmlFor="report" className="col-sm-2 col-form-label">
+            Your Report
+          </label>
+          <div className="col-sm-10 text-start">
+            <Quill value={messageReport} onChange={(value) => handleQuillChange(value)} />
+
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="status">Status</label>
-          <select
-            className="form-select"
-            id="status"
-            name="status"
-            value={formData.status}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Select a status</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-          </select>
+        <div className="mb-3 row name mt-5">
+          <label htmlFor="status" className="col-sm-2 col-form-label">
+            status
+          </label>
+          <div className="col-sm-10 text-start">
+            <select
+              required
+              type="select"
+              name="status"
+              className="form-control"
+              id="status"
+              placeholder="status"
+              onChange={handleInputChange}
+              defaultValue="chose"
+            >
+              <option disabled >chose</option>
+              <option>completed</option>
+              <option>pendding</option>
+
+            </select>
+          </div>
         </div>
-        <div className="d-flex justify-content-center align-content-center mt-5">
-          <button type="submit" className="submit-button ">
-            Add a Consultation
-          </button>
+        <div className="mt-5 add">
+          <Link to={""} className="btn btn-success p-0 ms-5">
+            <button type="button" className="btn btn-success " onClick={handleSubmit}>
+              + Add Report
+            </button>
+          </Link>
         </div>
-      </form>
-    </div>
+
+      </div>
+    </>
   );
 }
 

@@ -23,23 +23,33 @@ function UpdateUserInfo() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(returnUrl());
+    setUserInfo(userData)
   }, []);
 
   const apiUrl = useSelector((state) => state.urlValue.value);
   const pb = new PocketBase(apiUrl);
-  const [userInfo, setUserInfo] = useState([pb.authStore.model]);
 
-  console.log("user info is ", userInfo);
   const [userData, setUserData] = useState({
+    name: "mohammed ali yassen",
+    email: "Mohammed@gmail.com",
+    phone: "01115015105",
+    password: "0122zxcZXC",
+  });
+  const [userInfo, setUserInfo] = useState({
     name: "",
     email: "",
     phone: "",
     password: "",
   });
 
+
+
+  console.log("user info is ", userInfo);
+
+
   let handleOnChange = (e) => {
     if (e.target.name === "nameInput") {
-      setUserData({ ...userData, name: e.target.value });
+      setUserInfo({ ...userInfo, name: e.target.value });
       if (e.target.value.length < 2) {
         document.getElementById("nameNote").innerHTML = "Invalid name";
         document.getElementById("nameNote").classList.remove("visually-hidden");
@@ -51,7 +61,7 @@ function UpdateUserInfo() {
         document.getElementById("nameNote").classList.add("visually-hidden");
       }
     } else if (e.target.name === "passwordInput") {
-      setUserData({ ...userData, password: e.target.value });
+      setUserInfo({ ...userInfo, password: e.target.value });
       if (e.target.value.includes(" ")) {
         document.getElementById("passwordNote").innerHTML = "";
         document
@@ -70,8 +80,8 @@ function UpdateUserInfo() {
       } else {
         document.getElementById("passwordNote").classList.add("visually-hidden");
       }
-    } else if (e.target.name === "nameInput") {
-      setUserData({ ...userData, name: e.target.value });
+    } else if (e.target.name === "emailInput") {
+      setUserInfo({ ...userInfo, email: e.target.value });
     }
   };
 
@@ -105,34 +115,34 @@ function UpdateUserInfo() {
       });
   };
 
-    const logout = () => {
-      Modal.confirm({
-        title: 'Confirm',
-        content: 'Are you sure you want to logout?',
-        onOk() {
-          pb.authStore.clear()
-          navigate("/");
-        },
-        onCancel() {
-     
-        },
-      })
-    }
-    
-const deleteAccount=()=>{
-  Modal.confirm({
-    title: 'Confirm',
-    content: 'Are you sure you want to Delete Your Account?',
-    onOk() {
-      pb.collection('users').delete(userInfo[0].id);
-      navigate("/");
-    },
-    onCancel() {
- 
-    },
-  });
-  
-}
+  const logout = () => {
+    Modal.confirm({
+      title: 'Confirm',
+      content: 'Are you sure you want to logout?',
+      onOk() {
+        pb.authStore.clear()
+        navigate("/");
+      },
+      onCancel() {
+
+      },
+    })
+  }
+
+  const deleteAccount = () => {
+    Modal.confirm({
+      title: 'Confirm',
+      content: 'Are you sure you want to Delete Your Account?',
+      onOk() {
+        pb.collection('users').delete(userInfo[0].id);
+        navigate("/");
+      },
+      onCancel() {
+
+      },
+    });
+
+  }
 
 
   return (
@@ -140,7 +150,7 @@ const deleteAccount=()=>{
       <NavBar />
       <div className="signIn">
         <Heading className="mb-6 text-xl font-semibold mb-5" as="h4">
-          Welcome {userInfo.length>0?userInfo[0].username:"Our Client"}
+          Welcome {userData.name.length > 0 ? userData.name : "Our Client"}
         </Heading>
         <div className="mb-3 row">
           <label htmlFor="nameInput" className="col-sm-2 col-form-label">
@@ -152,7 +162,8 @@ const deleteAccount=()=>{
               name="nameInput"
               className="form-control"
               id="nameInput"
-              value= {userInfo.length>0?userInfo[0].username:"" } 
+              value={userInfo.name.length > 0 ? userInfo.name : ""}
+              placeholder={'example folan abn folan'}
               onChange={(e) => handleOnChange(e)}
             />
             <span
@@ -174,8 +185,9 @@ const deleteAccount=()=>{
               name="emailInput"
               className="form-control"
               id="emailInput"
-              value={userInfo.length>0?userInfo[0].email:""}
+              value={userInfo.email.length > 0 ? userInfo.email : ""}
               onChange={(e) => handleOnChange(e)}
+              placeholder="example@hotmail.com"
             />
             <span
               className="fs-6 fw-lighter text-danger visually-hidden"
@@ -193,7 +205,7 @@ const deleteAccount=()=>{
           <div className="col-sm-10 text-start">
             <PhoneInput
               country={"sa"}
-              value={userInfo[0].phone}
+              value={userInfo.phone}
               preferredCountries={["eg", "qa", "ku", "ae", "sa"]}
               onChange={(phone) => setUserData({ ...userData, phone })}
               inputStyle={{ width: "100%" }}
@@ -220,6 +232,7 @@ const deleteAccount=()=>{
               className="form-control"
               id="inputPassword"
               onChange={(e) => handleOnChange(e)}
+              value={userInfo.password}
             />
             <span
               className="fs-6 fw-lighter text-danger visually-hidden"
@@ -235,14 +248,14 @@ const deleteAccount=()=>{
             Edit Your Account
           </button>
           <button type="button" className="btn btn-danger " onClick={logout}>
-              Logout
-            </button>
+            Logout
+          </button>
           <button type="button" className="btn btn-danger " onClick={deleteAccount}>
             Delete Your Account
           </button>
         </div>
       </div>
-      
+
     </>
   );
 }
