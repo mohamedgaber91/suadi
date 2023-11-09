@@ -8,12 +8,13 @@ import NotFound from "./Pages/NotFound/NotFound";
 import About from "./Pages/About/About";
 import Footer from "./comps/footer/Footer";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Services from "./comps/services/Services";
 import UpdateUserInfo from "./Pages/updateUserInfo/updateUserInfo";
 import AdminPage from "./Pages/adminPages/index";
 import EmployeePage from "./Pages/employeePage";
 import AddPage from "./Pages/addPage/AddPage";
+import { getProducts } from "./rtk/slices/dateEmployees";
 
 export const backToTop = () => {
   window.scrollTo(0, 0);
@@ -25,6 +26,7 @@ export const switchMode = (darkMode) => {
 };
 
 function App() {
+
   const modeIs = useSelector((state) => state.darkMode.mode);
   useEffect(() => {
     window.scrollTo(0, 0);

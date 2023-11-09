@@ -2,18 +2,25 @@
 
 
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import { Box, IconButton } from '@mui/material';
 import { Edit as EditIcon, Delete as DeleteIcon, Email as EmailIcon } from '@mui/icons-material';
 import { Button } from '../../components/buttons/buttons';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../../rtk/slices/dateEmployees';
 
 
 
 export const EmployeeTable = () => {
-
-
+  const dispatch = useDispatch()
+  const employeeData = useSelector((state)=>state.employeeData)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    dispatch(getProducts());
+    console.log(employeeData)
+  });
 
   const columns = useMemo(
     //column definitions...
@@ -46,28 +53,9 @@ export const EmployeeTable = () => {
     [],
     //end
   );
-  const employees = [
-    {
-      id: 1,
-      employeeName: "mohammed",
-      consultationEmail: "mohammed@gmail.com",
-      consultationPendding: 15,
-      consultationCompleted: 20,
-      phone: "01111111111",
-      status: "blocked",
-    },
-    {
-      id: 2,
-      employeeName: "ziad",
-      consultationEmail: "ziad@gmail.com",
-      consultationPendding: 10,
-      consultationCompleted: 80,
-      phone: "565656565",
-      status: "activate",
-    },
-
-  ];
-  const [data, setData] = useState(employees);
+  // const employees = [
+  // ];
+  const [data, setData] = useState(employeeData);
 
   // const [editingRow, setEditingRow] = useState(null); // Track the currently editing row
 

@@ -74,8 +74,19 @@ function SignIn() {
        
     openNotificationWithIcon("success","welcome");
     navigate('/home');
+  }).catch(async(err)=>{
+
+    const authData = await pb.collection('employee').authWithPassword(
+      userData.email,
+      userData.password,
+  ).then((res)=> {
+        pb.authStore.save(res.token,res.record);
+       
+    openNotificationWithIcon("success","welcome");
+    navigate('/home');
   }).catch((err)=>{
 openNotificationWithIcon("error","faild to login , please enter your correct information")
+  })
   })
   
   // after the above you can also access the auth data from the authStore

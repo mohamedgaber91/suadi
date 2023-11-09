@@ -1,6 +1,10 @@
 import axios from "axios";
+import { useEffect } from "react";
 
-const BASE_URL = 'https://api';
+// useEffect(()=>{
+
+// })
+const BASE_URL = 'http://172.0.0.1/8090';
 
  const getDataApi = async (url) => {
     try {
