@@ -31,6 +31,7 @@ function Home(props) {
   } else {
     document.querySelector("body").style.background = "#fff";
   }
+
   return (
     <>
       <NavBar />
@@ -38,6 +39,7 @@ function Home(props) {
         rightSrc={img}
         divImgClassName="imgG"
         alt="business"
+        lang = 'en'
         title="welcome to"
         haveLogo={true}
         text={<Logo />}

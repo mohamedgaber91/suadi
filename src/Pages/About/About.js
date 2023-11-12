@@ -77,8 +77,9 @@ function Movies(props) {
                 rightSrc={img2} alt='about-1' title='Individuals in Career Transition:' haveLogo={false}
                 text={"Whether you're a recent graduate, a mid-career professional seeking a change, or someone re-entering the workforce, our custom career counselling services offer guidance and direction to help you make informed decisions about your career path."}
                 haveButtons={false} className='aboutRight' divImgClassName='aboutRightImgDiv'
-                imgClassName='aboutRightImg' colImg='4' colText='8'
-                divTextClassName='aboutRightText  ' darkMode={darkMode}
+                imgClassName='aboutRightImg' colImg='4' colText='8' titleAr=': الأفراد في التحول الوظيفي'
+                divTextClassName='aboutRightText  ' darkMode={darkMode} lang = 'ar'
+                textAr = "سواء كنت خريجًا حديثًا، أو محترفًا في منتصف حياتك المهنية وتسعى إلى التغيير، أو شخصًا يعود إلى سوق العمل، فإن خدمات الاستشارة المهنية المخصصة لدينا تقدم التوجيه والتوجيه لمساعدتك على اتخاذ قرارات مستنيرة بشأن مسار حياتك المهنية."
             />
             <LeftImg leftSrc={img3} haveLogo={false} alt='about-2' title='Businesses of All Sizes:'
                 text='From start-ups to established enterprises, our business audit services provide valuable insights to enhance efficiency, reduce costs, and optimize operations. We partner with businesses looking to scale, pivot, or improve their overall performance.'
