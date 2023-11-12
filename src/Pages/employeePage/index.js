@@ -1,16 +1,43 @@
 
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./EmployeePage.css";
 import Quill from '../../comps/quill/quill';
+import PocketBase from 'pocketbase';
 
 
 function EmployeePage() {
-
-
+  const [users, setUsers] = useState([])
+  const [selectUsers, setSelectUsers] = useState(users)
+  const [userData,setUserData]=useState()
   //   const history = useHistory();
+
+  const getUsers = async () => {
+    const pb = new PocketBase('http://127.0.0.1:8090');
+    // fetch a paginated records list
+    const resultList = await pb.collection('employee').getList()
+      .then((res) => {
+        console.log(res.items[0].selectedUser)
+        // setReports(res)
+        var dd = res.items[0].selectedUser
+        console.log("dd is ", dd)
+        users.push(dd)
+        console.log("users", selectUsers[0])
+        setUserData(selectUsers[0])
+      })
+    // setUsers(resultList);
+  //   const getUsers = resultList.items[0].selectedUser
+  //   selectUsers.push(getUsers);
+  //   console.log(selectUsers[0])
+  }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+
 
   const [formData, setFormData] = useState({
     userName: "",
@@ -54,10 +81,12 @@ function EmployeePage() {
               defaultValue="chose"
             >
               <option disabled >chose</option>
-              <option>User_1</option>
-              <option>User_2</option>
-              <option>User_3</option>
-              <option>User_4</option>
+              {userData?.map((el, index) => {
+                console.log(el)
+                return (
+                  <option>{el}</option>
+                )
+              })}
             </select>
           </div>
         </div>

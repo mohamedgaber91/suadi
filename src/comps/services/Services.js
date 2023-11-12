@@ -19,7 +19,7 @@ const Services = (props) => {
       {showNavbar === "true" ? <NavBar /> : <></>}
 
       <div
-        className={`container ${darkMode ? "text-black" : "text-white"
+        className={`container ${darkMode ? "text-white" : "text-white"
           } mb-5 pt-5 `}
         style={{ background: darkMode ? "#fff" : "#212529" }}
       >

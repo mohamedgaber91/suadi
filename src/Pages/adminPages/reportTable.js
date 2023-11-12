@@ -81,9 +81,11 @@
 
 
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import { Box, Button, Dialog, DialogTitle, DialogContent } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import PocketBase from 'pocketbase';
 
 export const ReportsTable = () => {
   const columns = useMemo(
@@ -94,7 +96,7 @@ export const ReportsTable = () => {
         header: 'Employee Name',
       },
       {
-        accessorKey: 'createdAt',
+        accessorKey: 'created',
         header: 'Created At',
       },
       {
@@ -111,7 +113,7 @@ export const ReportsTable = () => {
       id: 1,
       employeeName: "mohammed",
       createdAt: "21/1/2000",
-      report: "jmfjgikdfjgkidfjgkfjfdmdfkgmkdfdjjfgj jmfjgikdfjgkidfjgkfjfdmdfkgmkdfdjjfgj"
+      report: `"jmfjgikdfjgkidfjgkfjfdmdfkgmkdfdjjfgj jmfjgikdfjgkidfjgkfjfdmdfkgmkdfdjjfgj"`
     },
     {
       id: 2,
@@ -121,7 +123,36 @@ export const ReportsTable = () => {
     },
   ];
 
-  const [data, setData] = useState(employees);
+  const [reports, setReports] = useState([])
+  // const dispatch = useDispatch()
+  // const apiUrl = useSelector((state) => state.urlValue.value)
+  const getreports = async () => {
+    try {
+      const pb = new PocketBase("http://127.0.0.1:8090");
+      const resultList = await pb.collection('reports').getList()
+      .then((res)=>{
+        console.log(res)
+          // setReports(res)
+          var dd=res.items
+console.log("dd is ", dd)
+         setData(dd)
+          console.log("rep", reports)
+        })
+        
+      
+    
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+console.log("reports is ",reports)
+    // dispatch(returnUrl())
+    getreports()
+    
+
+  },[]);
+  const [data, setData] = useState(reports);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentReport, setCurrentReport] = useState("");
 
